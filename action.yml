@@ -4,7 +4,7 @@ inputs:
   user:  
     description: 'LambdaTest Email'
     required: true
-  key:
+  accessKey:
     description: 'LambdaTest AccessKey'
     required: true
   tunnelName:

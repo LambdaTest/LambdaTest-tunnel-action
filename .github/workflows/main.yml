@@ -20,11 +20,12 @@ jobs:
         uses: ./ # Uses an action in the root directory
         with:
           user: ${{ secrets.LT_EMAIL }}
-          key: ${{ secrets.LT_ACCESS_KEY }}
+          accessKey: ${{ secrets.LT_ACCESS_KEY }}
           tunnelName: "testTunnel"
 
       - run: echo 'Hello World'
       - run: sleep 30
+      - run: "echo ${{ steps.tunnel.outputs.port }}"
 
       # - name: Get the output port
       #   run: echo "The time was ${{ steps.hello.outputs.port }}"
