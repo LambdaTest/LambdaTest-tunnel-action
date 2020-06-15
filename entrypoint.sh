@@ -1,6 +1,10 @@
 #!/bin/bash
 
+echo $*
+
+
 if [ -z "${1}" ]; then
+        echo ${1}
         params+=" --user ${1}"
 fi
 
@@ -45,10 +49,9 @@ done
 
 params+=" --controller github --infoAPIPort $port"
 
-ls -a
 echo "LT $params"
 # Run tunnel binary
-./LT $params &
+/LT $params &
 
 # Waits for the tunnel connection to be established with the tunnel server
 curl  --silent --retry-connrefused --connect-timeout 5 --max-time 5 --retry 30 --retry-delay 2 --retry-max-time 60 http://127.0.0.1:$port/api/v1.0/info 2>&1 > /dev/null
