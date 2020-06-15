@@ -1,34 +1,38 @@
 #!/bin/bash
 
-if [ -z "$1" ]; then
+if [ -z "${1}" ]; then
         params+=" --user ${1}"
 fi
 
-if [ -z "$2" ]; then
+if [ -z "${2}" ]; then
         params+=" --key ${2}"
 fi
 
-if [ -z "$3" ]; then
+if [ -z "${3}" ]; then
         params+=" --tunnelName ${3}"
 fi
 
-if [ -z "$4" ]; then
+if [ -z "${4}" ]; then
         params+=" --proxy-host ${4}"
 fi
 
-if [ -z "$5" ]; then
-        params+=" --proxy-user ${5}"
+if [ -z "${5}" ]; then
+        params+=" --proxy-port ${5}"
 fi
 
-if [ -z "$6" ]; then
-        params+=" --proxy-pass ${6}"
+if [ -z "${6}" ]; then
+        params+=" --proxy-user ${6}"
 fi
 
-if [ -z "$7" ]; then
+if [ -z "${7}" ]; then
+        params+=" --proxy-pass ${7}"
+fi
+
+if [ -z "${8}" ]; then
         params+=" --shared-tunnel"
 fi
 
-if [ -z "$8" ]; then
+if [ -z "${9}" ]; then
         params+=" -v"
 fi
 
@@ -41,7 +45,8 @@ done
 
 params+=" --controller github --infoAPIPort $port"
 
-echo "./LT $params"
+ls -a
+echo "LT $params"
 # Run tunnel binary
 ./LT $params &
 
