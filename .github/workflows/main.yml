@@ -1,0 +1,47 @@
+name: Test Tunnel
+
+on: push
+
+jobs:
+  test-tunnel:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v1
+
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Run LambdaTest Tunnel
+        id: tunnel
+        uses: ./ # Uses an action in the root directory
+        with:
+          user: ${{ secrets.LT_EMAIL }}
+          key: ${{ secrets.LT_ACCESS_KEY }}
+          tunnelName: "testTunnel"
+
+      - run: echo 'Hello World'
+      - run: sleep 30
+
+      # - name: Get the output port
+      #   run: echo "The time was ${{ steps.hello.outputs.port }}"
+      
+      # - run: yarn test
+      #   with:
+      #     node-version: 12
+# secrets store is in settings
+
+# Failing beacuse virtual framebuffer not installed
+#          yarn build-e2e
+#          yarn test-e2e
+
+
+  # - name: Hello world
+  #   run: echo Hello world $FIRST_NAME $middle_name $Last_Name!
+  #   env:
+  #     FIRST_NAME: Mona
+  #     middle_name: The
+  #     Last_Name: Octocat

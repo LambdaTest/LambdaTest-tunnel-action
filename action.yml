@@ -1,0 +1,48 @@
+name: 'LambdaTest Tunnel Action'
+description: 'A Github Action to launch LambdaTest Tunnel'
+inputs:
+  user:  
+    description: 'LambdaTest Email'
+    required: true
+  key:
+    description: 'LambdaTest AccessKey'
+    required: true
+  tunnelName:
+    description: 'Tunnel name to uniquely identify your tunnel on LambdaTest platform'
+    required: true
+  proxyHost:
+    description: 'Proxy host if connecting tunnel via proxy'
+    required: false
+  proxyPort:
+    description: 'Proxy port if connecting tunnel via proxy'
+    required: false
+  proxyUser:
+    description: 'Proxy username if connecting tunnel via proxy that has authentication enabled' 
+    required: false
+  proxyPass:
+    description: 'Proxy password if connecting tunnel via proxy  that has authentication enabled'
+    required: false
+  sharedTunnel:
+    description: 'Sharing tunnel among team members'
+    required: false
+  verbose:
+    description: 'Run tunnel in verbose mode'
+    required: false
+outputs:
+  port: # id of output
+    description: 'Port on which infoAPIServer is running'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.user }}
+    - ${{ inputs.accessKey }}
+    - ${{ inputs.tunnelName }}
+    - ${{ inputs.proxyHost }}
+    - ${{ inputs.proxyPort }}
+    - ${{ inputs.proxyUser }}
+    - ${{ inputs.proxyPass }}
+    - ${{ inputs.sharedTunnel }}
+    - ${{ inputs.verbose }}
+
+    
