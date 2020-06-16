@@ -2,7 +2,7 @@
   "name": "lambdatest-tunnel-action",
   "version": "1.0.0",
   "description": "A Github Action to launch LambdaTest Tunnel",
-  "main": "index.js",
+  "main": "./lib/setup-tunnel.js",
   "scripts": {
     "build": "tsc && ncc build",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -22,6 +22,7 @@
     "@actions/core": "^1.2.4",
     "@actions/exec": "^1.0.4",
     "@actions/tool-cache": "^1.5.5",
+    "@types/node": "^14.0.13",
     "get-port": "^5.1.1"
   },
   "devDependencies": {

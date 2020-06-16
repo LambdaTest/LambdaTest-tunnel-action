@@ -33,4 +33,4 @@ outputs:
     description: 'Port on which api server is running'
 runs:
   using: 'node12'
-  main: 'index.js'
+  main: 'dist/index.js'

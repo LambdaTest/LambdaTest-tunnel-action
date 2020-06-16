@@ -14,7 +14,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12
-
+      - run: npm install
+      - run: npm run build
       - name: Run LambdaTest Tunnel
         id: tunnel
         uses: ./ # Uses an action in the root directory
@@ -23,7 +24,8 @@ jobs:
           accessKey: ${{ secrets.LT_ACCESS_KEY }}
           tunnelName: "testTunnel"
 
-      - run: echo "The port is ${{ steps.tunnel.outputs.port }}"
-      - run: curl http://127.0.0.1:${{ steps.tunnel.outputs.port }}/api/v1.0/info
+      # - run: echo "The port is ${{ steps.tunnel.outputs.port }}"
+      # - run: curl http://127.0.0.1:${{ steps.tunnel.outputs.port }}/api/v1.0/info
+      - run: echo 'Tunnel is running now'
       - run: sleep 45
       - run: echo 'We are done'
