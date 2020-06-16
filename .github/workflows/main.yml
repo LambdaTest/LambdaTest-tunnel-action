@@ -24,26 +24,6 @@ jobs:
           tunnelName: "testTunnel"
 
       - run: echo "The port is ${{ steps.tunnel.outputs.port }}"
-      - run: http://127.0.0.1:${{ steps.tunnel.outputs.port }}/api/v1.0/info
+      - run: curl http://127.0.0.1:${{ steps.tunnel.outputs.port }}/api/v1.0/info
       - run: sleep 45
       - run: echo 'We are done'
-
-      # - name: Get the output port
-      #   run: echo "The time was ${{ steps.hello.outputs.port }}"
-      
-      # - run: yarn test
-      #   with:
-      #     node-version: 12
-# secrets store is in settings
-
-# Failing beacuse virtual framebuffer not installed
-#          yarn build-e2e
-#          yarn test-e2e
-
-
-  # - name: Hello world
-  #   run: echo Hello world $FIRST_NAME $middle_name $Last_Name!
-  #   env:
-  #     FIRST_NAME: Mona
-  #     middle_name: The
-  #     Last_Name: Octocat
