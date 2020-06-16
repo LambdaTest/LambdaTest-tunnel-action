@@ -23,9 +23,10 @@ jobs:
           accessKey: ${{ secrets.LT_ACCESS_KEY }}
           tunnelName: "testTunnel"
 
-      - run: echo 'Hello World'
-      - run: sleep 30
-      - run: "echo ${{ steps.tunnel.outputs.port }}"
+      - run: echo "The port is ${{ steps.tunnel.outputs.port }}"
+      - run: lsof -i tcp:${{ steps.tunnel.outputs.port }}
+      - run: sleep 45
+      - run: echo 'We are done'
 
       # - name: Get the output port
       #   run: echo "The time was ${{ steps.hello.outputs.port }}"
