@@ -24,7 +24,7 @@ jobs:
           tunnelName: "testTunnel"
 
       - run: echo "The port is ${{ steps.tunnel.outputs.port }}"
-      - run: lsof -i tcp:${{ steps.tunnel.outputs.port }}
+      - run: http://127.0.0.1::${{ steps.tunnel.outputs.port }}/api/v1.0/info
       - run: sleep 45
       - run: echo 'We are done'
 
