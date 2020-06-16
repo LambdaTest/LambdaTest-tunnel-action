@@ -46,6 +46,7 @@ done
 params+=" --controller github --infoAPIPort $port"
 
 echo "LT $params"
+echo "::set-output name=port::$port"
 # Run tunnel binary
 /LT $params &
 # Waits for the tunnel connection to be established with the tunnel server

@@ -30,7 +30,7 @@ inputs:
     required: false
 outputs:
   port: # id of output
-    description: 'Port on which infoAPIServer is running'
+    description: 'Port on which api server is running'
 runs:
   using: 'docker'
   image: 'Dockerfile'
