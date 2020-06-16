@@ -32,17 +32,5 @@ outputs:
   port: # id of output
     description: 'Port on which api server is running'
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-    - ${{ inputs.user }}
-    - ${{ inputs.accessKey }}
-    - ${{ inputs.tunnelName }}
-    - ${{ inputs.proxyHost }}
-    - ${{ inputs.proxyPort }}
-    - ${{ inputs.proxyUser }}
-    - ${{ inputs.proxyPass }}
-    - ${{ inputs.sharedTunnel }}
-    - ${{ inputs.verbose }}
-
-    
+  using: 'node12'
+  main: 'index.js'
