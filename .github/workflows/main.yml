@@ -24,6 +24,8 @@ jobs:
           tunnelName: "testTunnel"
 
       - run: echo "The port is ${{ steps.tunnel.outputs.port }}"
+      - run: grep 'docker\|lxc' /proc/1/cgroup
+      - run: uname -a
       - run: curl http://127.0.0.1:${{ steps.tunnel.outputs.port }}/api/v1.0/info
       - run: sleep 45
       - run: echo 'We are done'

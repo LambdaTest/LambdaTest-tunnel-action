@@ -45,6 +45,9 @@ done
 
 params+=" --controller github --infoAPIPort $port"
 
+grep 'docker\|lxc' /proc/1/cgroup
+uname -a
+
 echo "LT $params"
 echo "::set-output name=port::$port"
 # Run tunnel binary
