@@ -18,7 +18,7 @@ export async function run() {
       },
     };
     await exec.exec(
-      "docker run -d=true --net=host lambdatest/tunnel:latest ",
+      "docker run --net=host lambdatest/tunnel:latest ",
       tunnelParams,
       options
     );
@@ -55,7 +55,7 @@ async function getTunnelParams() {
   let port = await getPort();
   core.setOutput("port", port);
   core.saveState("port", port);
-  params.push("--controller", "github", "--infoAPIPort", `${port}`, "&");
+  params.push("--controller", "github", "--infoAPIPort", `${port}`);
 
   return params;
 }
