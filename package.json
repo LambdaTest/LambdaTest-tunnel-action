@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc && ncc build",
     "test": "run-p test:*",
-    "test:server": "http-server -p 8888 ./test &",
+    "test:server": "http-server . > /dev/null 2>&1 &",
     "test:run": "node ./test/test.js"
   },
   "repository": {
