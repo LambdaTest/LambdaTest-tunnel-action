@@ -25,6 +25,11 @@ jobs:
           tunnelName: "testTunnel"
 
       - name: Run Test Case
+        env:
+          username: ${{ secrets.LT_USERNAME }}
+          accessKey: ${{ secrets.LT_ACCESS_KEY }}
+          tunnelName: "testTunnel"
+
         run: npm test
 
       - name: Stop Tunnel

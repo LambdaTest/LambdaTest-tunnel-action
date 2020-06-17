@@ -10,13 +10,13 @@ async function executeTest() {
     version: "75.0",
     tunnel: true,
     video: true,
-    tunnelName: 'testTunnel',
+    tunnelName: process.env.tunnelName,
     name: "Test 1", // name of the test
     build: "NodeJS build", // name of the build
   };
 
   // URL: https://{username}:{accessKey}@hub.lambdatest.com/wd/hub
-  const gridUrl = `https://${process.env.LT_USERNAME}:${process.env.LT_ACCESS_KEY}@${gridHost}`;
+  const gridUrl = `https://${process.env.username}:${process.env.accessKey}@${gridHost}`;
   console.log(gridUrl)
   const driver = new webdriver.Builder()
     .usingServer(gridUrl)
