@@ -4,7 +4,9 @@ import getPort from "get-port";
 
 export async function run() {
   try {
-    const tunnelParams: Array<string> = await getTunnelParams();
+    let port = await getPort();
+    core.setOutput("port", port);
+    const tunnelParams: Array<string> = await getTunnelParams(port);
     const options: exec.ExecOptions = {};
     let myOutput = "";
     let myError = "";
@@ -16,8 +18,6 @@ export async function run() {
         myError += data.toString();
       },
     };
-    let port = await getPort();
-    core.setOutput("port", port);
 
     await exec.exec("docker pull lambdatest/tunnel:latest", undefined, options);
     await exec.exec(
