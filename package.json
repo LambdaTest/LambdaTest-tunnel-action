@@ -5,7 +5,9 @@
   "main": "./lib/setup-tunnel.js",
   "scripts": {
     "build": "tsc && ncc build",
-    "test": "http-server -p 8888 ./test && node ./test/test.js"
+    "test": "run-p test:*",
+    "test:server": "http-server -p 8888 ./test",
+    "test:run": "node ./test/test.js"
   },
   "repository": {
     "type": "git",
