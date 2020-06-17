@@ -17,7 +17,7 @@ async function executeTest() {
 
   // URL: https://{username}:{accessKey}@hub.lambdatest.com/wd/hub
   const gridUrl = `https://${process.env.LT_USERNAME}:${process.env.LT_ACCESS_KEY}@${gridHost}`;
-
+  console.log(gridUrl)
   const driver = new webdriver.Builder()
     .usingServer(gridUrl)
     .withCapabilities(capabilities)
