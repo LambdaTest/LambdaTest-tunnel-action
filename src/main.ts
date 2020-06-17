@@ -5,7 +5,6 @@ import getPort from "get-port";
 export async function run() {
   try {
     const tunnelParams: Array<string> = await getTunnelParams();
-    await exec.exec("docker pull lambdatest/tunnel:latest");
     const options: exec.ExecOptions = {};
     let myOutput = "";
     let myError = "";
@@ -17,6 +16,10 @@ export async function run() {
         myError += data.toString();
       },
     };
+    let port = await getPort();
+    core.setOutput("port", port);
+
+    await exec.exec("docker pull lambdatest/tunnel:latest", undefined, options);
     await exec.exec(
       "docker run -d=true --net=host lambdatest/tunnel:latest ",
       tunnelParams,
@@ -24,16 +27,16 @@ export async function run() {
     );
 
     await exec.exec(
-      `curl  --silent --retry-connrefused --connect-timeout 5 --max-time 5 --retry 30 --retry-delay 2 --retry-max-time 60 http://127.0.0.1:${core.getState(
-        "port"
-      )}/api/v1.0/info 2>&1 > /dev/null`
+      `curl --retry-connrefused --connect-timeout 5 --max-time 5 --retry 30 --retry-delay 2 --retry-max-time 60 http://127.0.0.1:${port}/api/v1.0/info`,
+      undefined,
+      options
     );
   } catch (error) {
     core.setFailed(error.message);
   }
 }
 
-async function getTunnelParams() {
+async function getTunnelParams(port: Number) {
   let params = [];
 
   if (core.getInput("user")) params.push("--user", core.getInput("user"));
@@ -51,10 +54,6 @@ async function getTunnelParams() {
     params.push("--proxy-pass", core.getInput("proxyPass"));
   if (core.getInput("sharedTunnel")) params.push("--shared-tunnel");
   if (core.getInput("verbose")) params.push("-v");
-
-  let port = await getPort();
-  core.setOutput("port", port);
-  core.saveState("port", port);
   params.push("--controller", "github", "--infoAPIPort", `${port}`);
 
   return params;
