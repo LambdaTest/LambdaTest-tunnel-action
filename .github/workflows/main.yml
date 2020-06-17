@@ -28,4 +28,5 @@ jobs:
       - run: echo 'Tunnel is running now'
       - run: curl http://127.0.0.1:${{ steps.tunnel.outputs.port }}/api/v1.0/info
       - run: sleep 45
+      - run: curl -X DELETE http://127.0.0.1:${{ steps.tunnel.outputs.port }}/api/v1.0/stop
       - run: echo 'We are done'
