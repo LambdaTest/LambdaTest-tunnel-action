@@ -5,14 +5,14 @@
   "main": "./lib/setup-tunnel.js",
   "scripts": {
     "build": "tsc && ncc build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "http-server -p 8888 ./test && node ./test/test.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LambdaTest/lambdatest-tunnel-action.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["LambdaTest", "tunnel"],
+  "author": "Rishabh Arya <rishabha@lambdatest.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/LambdaTest/lambdatest-tunnel-action/issues"
@@ -27,6 +27,9 @@
   },
   "devDependencies": {
     "@zeit/ncc": "^0.22.3",
+    "http-server": "^0.12.3",
+    "npm-run-all": "^4.1.5",
+    "selenium-webdriver": "^4.0.0-alpha.7",
     "typescript": "^3.9.5"
   }
 }

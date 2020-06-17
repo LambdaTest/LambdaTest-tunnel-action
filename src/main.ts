@@ -27,10 +27,11 @@ export async function run() {
     );
 
     await exec.exec(
-      `curl --retry-connrefused --connect-timeout 5 --max-time 5 --retry 30 --retry-delay 2 --retry-max-time 60 http://127.0.0.1:${port}/api/v1.0/info`,
+      `curl -s --retry-connrefused --connect-timeout 5 --max-time 5 --retry 30 --retry-delay 2 --retry-max-time 60 http://127.0.0.1:${port}/api/v1.0/info`,
       undefined,
       options
     );
+    console.log('Tunnel is running now')
   } catch (error) {
     core.setFailed(error.message);
   }
