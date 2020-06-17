@@ -1,38 +1,12 @@
 import * as core from "@actions/core";
 import * as exec from "@actions/exec";
 import getPort from "get-port";
-import childProcess from 'child_process';
-import * as installer from "./install";
 
 export async function run() {
   try {
-    const tunnelBinaryPath: string = await installer.downloadBinary();
     const tunnelParams: Array<string> = await getTunnelParams();
-    const options: exec.ExecOptions = {};
-
-    let myOutput = "";
-    let myError = "";
-
-    options.listeners = {
-      stdout: (data: Buffer) => {
-        myOutput += data.toString();
-      },
-      stderr: (data: Buffer) => {
-        myError += data.toString();
-      },
-    };
-
-    const tunnelProcess = childProcess.spawn(tunnelBinaryPath, tunnelParams, {
-        shell: true,
-        detached: true,
-      });
-      tunnelProcess.stdout.on('data', data => {
-       console.log(data.toString())
-      });
-      tunnelProcess.stderr.on('data', data => {
-        console.log(data.toString())
-      });
-      tunnelProcess.unref()
+    await exec.exec('docker pull lambdatest/tunnel:latest')
+    await exec.exec('docker run -d=true --net=host lambdatest/tunnel:latest ',tunnelParams)
 
   } catch (error) {
     core.setFailed(error.message);
@@ -59,7 +33,7 @@ async function getTunnelParams() {
   if (core.getInput("verbose")) params.push("-v");
 
   let port = await getPort();
-  core.saveState("port", port);
+  core.setOutput("port", port)
   params.push("--controller", "github", "--infoAPIPort", `${port}`);
 
   return params;
