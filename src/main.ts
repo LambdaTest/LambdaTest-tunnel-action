@@ -55,7 +55,7 @@ async function getTunnelParams() {
   let port = await getPort();
   core.setOutput("port", port);
   core.saveState("port", port);
-  params.push("--controller", "github", "--infoAPIPort", `${port}`);
+  params.push("--controller", "github", "--infoAPIPort", `${port}`, "&");
 
   return params;
 }
