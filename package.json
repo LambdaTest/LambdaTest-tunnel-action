@@ -13,7 +13,10 @@
     "type": "git",
     "url": "git+https://github.com/LambdaTest/lambdatest-tunnel-action.git"
   },
-  "keywords": ["LambdaTest", "tunnel"],
+  "keywords": [
+    "LambdaTest",
+    "tunnel"
+  ],
   "author": "Rishabh Arya <rishabha@lambdatest.com>",
   "license": "ISC",
   "bugs": {
@@ -22,8 +25,6 @@
   "homepage": "https://github.com/LambdaTest/lambdatest-tunnel-action#readme",
   "dependencies": {
     "@actions/core": "^1.2.4",
-    "@actions/exec": "^1.0.4",
-    "@actions/tool-cache": "^1.5.5",
     "@types/node": "^14.0.13",
     "get-port": "^5.1.1"
   },

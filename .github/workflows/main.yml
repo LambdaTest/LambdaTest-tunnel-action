@@ -34,3 +34,9 @@ jobs:
 
       - name: Stop Tunnel
         run: curl  -X DELETE http://127.0.0.1:${{ steps.tunnel.outputs.port }}/api/v1.0/stop
+
+      - name: Export Tunnel Logs for debugging
+        uses: actions/upload-artifact@v2
+        with:
+          name: tunnel_logs
+          path: ${{ steps.tunnel.outputs.logFileName }}
