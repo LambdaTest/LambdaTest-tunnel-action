@@ -14,8 +14,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12
+      - run: npm install
 
-      - name: Run LambdaTest Tunnel
+      - name: Start LambdaTest Tunnel
         id: tunnel
         uses: ./ # Uses an action in the root directory
         with:
@@ -23,9 +24,13 @@ jobs:
           accessKey: ${{ secrets.LT_ACCESS_KEY }}
           tunnelName: "testTunnel"
 
-      - run: echo "The port is ${{ steps.tunnel.outputs.port }}"
-      - run: grep 'docker\|lxc' /proc/1/cgroup
-      - run: uname -a
-      - run: curl http://127.0.0.1:${{ steps.tunnel.outputs.port }}/api/v1.0/info
-      - run: sleep 45
-      - run: echo 'We are done'
+      - name: Run Test Case
+        env:
+          username: ${{ secrets.LT_USERNAME }}
+          accessKey: ${{ secrets.LT_ACCESS_KEY }}
+          tunnelName: "testTunnel"
+
+        run: npm test
+
+      - name: Stop Tunnel
+        run: curl  -X DELETE http://127.0.0.1:${{ steps.tunnel.outputs.port }}/api/v1.0/stop
