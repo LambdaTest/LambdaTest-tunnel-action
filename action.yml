@@ -1,36 +1,46 @@
-name: 'LambdaTest Tunnel Action'
-description: 'A Github Action to launch LambdaTest Tunnel'
+name: "LambdaTest Tunnel Action"
+description: "A Github Action to launch LambdaTest Tunnel"
 inputs:
-  user:  
-    description: 'LambdaTest Email'
+  user:
+    description: "LambdaTest Email"
     required: true
   accessKey:
-    description: 'LambdaTest AccessKey'
+    description: "LambdaTest AccessKey"
     required: true
   tunnelName:
-    description: 'Tunnel name to uniquely identify your tunnel on LambdaTest platform'
+    description: "Tunnel name to uniquely identify your tunnel on LambdaTest platform"
     required: true
   proxyHost:
-    description: 'Proxy host if connecting tunnel via proxy'
+    description: "Proxy host if connecting tunnel via proxy"
     required: false
   proxyPort:
-    description: 'Proxy port if connecting tunnel via proxy'
+    description: "Proxy port if connecting tunnel via proxy"
     required: false
   proxyUser:
-    description: 'Proxy username if connecting tunnel via proxy that has authentication enabled' 
+    description: "Proxy username if connecting tunnel via proxy that has authentication enabled"
     required: false
   proxyPass:
-    description: 'Proxy password if connecting tunnel via proxy  that has authentication enabled'
+    description: "Proxy password if connecting tunnel via proxy  that has authentication enabled"
     required: false
   sharedTunnel:
-    description: 'Sharing tunnel among team members'
+    description: "Sharing tunnel among team members"
     required: false
   verbose:
-    description: 'Run tunnel in verbose mode'
+    description: "Run tunnel in verbose mode"
     required: false
+  ingressOnly:
+    description: "Routes only incoming traffic via the proxy specified"
+    required: false
+  dns:
+    description: "Comma separated list of dns servers"
+    required: false
+
 outputs:
   port: # id of output
-    description: 'Port on which api server is running'
+    description: "Port on which api server is running"
+  logFileName:
+    description: "Name of log file of tunnel"
+
 runs:
-  using: 'node12'
-  main: 'dist/index.js'
+  using: "node12"
+  main: "dist/index.js"
