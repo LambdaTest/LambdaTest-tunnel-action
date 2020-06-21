@@ -1,3 +1,4 @@
+![LAMBDATEST Logo](http://labs.lambdatest.com/images/fills-copy.svg)
 # LambdaTest Tunnel Action
 
 ![Test Tunnel](https://github.com/LambdaTest/lambdatest-tunnel-action/workflows/Test%20Tunnel/badge.svg)
