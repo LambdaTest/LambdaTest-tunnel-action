@@ -32,8 +32,8 @@ inputs:
     description: "Routes only incoming traffic via the proxy specified"
     required: false
   dns:
-    description: "Comma separated list of dns servers"
-      required: false
+    - description: "Comma separated list of dns servers"
+      - required: false
 
 outputs:
   port: # id of output
