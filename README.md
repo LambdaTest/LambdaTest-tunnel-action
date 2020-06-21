@@ -1,7 +1,7 @@
 ![LAMBDATEST Logo](http://labs.lambdatest.com/images/fills-copy.svg)
 # LambdaTest Tunnel Action
 
-![Lint](https://img.shields.io/github/workflow/status/LambdaTest/LambdaTest-tunnel-action/lint?label=LINT&style=for-the-badge)
+![Lint](https://img.shields.io/github/workflow/status/LambdaTest/LambdaTest-tunnel-action/lint?label=LINT&style=for-the-badge&logo=github)
 ![Test Tunnel](https://img.shields.io/github/workflow/status/LambdaTest/LambdaTest-tunnel-action/Test%20Tunnel?logo=github&style=for-the-badge&label=Test%20Tunnel)
 ![Releases](https://img.shields.io/github/v/release/LambdaTest/LambdaTest-tunnel-action?logo=github&style=for-the-badge&t=1)
 
