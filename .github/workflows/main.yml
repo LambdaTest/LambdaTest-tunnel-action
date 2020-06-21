@@ -2,7 +2,7 @@ name: Test Tunnel
 
 on: push
 
-gibberish
+gibberish:
 
 jobs:
   test-tunnel:
