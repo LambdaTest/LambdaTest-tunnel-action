@@ -80,3 +80,5 @@ async function getTunnelParams(port: Number) {
   params.push("--controller", "github", "--infoAPIPort", `${port}`);
   return params;
 }
+
+run();

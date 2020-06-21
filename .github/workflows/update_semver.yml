@@ -1,13 +1,14 @@
-name: Update Semver
+name: Update Major semver
 on:
   push:
-    branches-ignore:
-      - '**'
     tags:
-      - 'v*.*.*'
+      - "v*"
+
 jobs:
-  update-semver:
+  update-majorver:
+    name: Update Major Version Tag
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: haya14busa/action-update-semver@v1
+      - uses: nowactions/update-majorver@v1
+        with:
+          github_token: ${{ secrets.github_token }}

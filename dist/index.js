@@ -40,7 +40,7 @@ module.exports =
 /******/ 	// the startup function
 /******/ 	function startup() {
 /******/ 		// Load entry module and return exports
-/******/ 		return __webpack_require__(440);
+/******/ 		return __webpack_require__(198);
 /******/ 	};
 /******/
 /******/ 	// run startup
@@ -150,19 +150,19 @@ function getTunnelParams(port) {
             params.push("--key", core.getInput("accessKey"));
         }
         if (core.getInput("tunnelName")) {
-            params.push("--tunnelName", core.getInput("tunnelName"));
+            params.push("--tunnelName", `"${core.getInput("tunnelName")}"`);
         }
         if (core.getInput("proxyHost")) {
-            params.push("--proxy-host", core.getInput("proxyHost"));
+            params.push("--proxy-host", `"${core.getInput("proxyHost")}"`);
         }
         if (core.getInput("proxyPort")) {
-            params.push("--proxy-port", core.getInput("proxyPort"));
+            params.push("--proxy-port", `"${core.getInput("proxyPort")}"`);
         }
         if (core.getInput("proxyUser")) {
-            params.push("--proxy-user", core.getInput("proxyUser"));
+            params.push("--proxy-user", `"${core.getInput("proxyUser")}"`);
         }
         if (core.getInput("proxyPass")) {
-            params.push("--proxy-pass", core.getInput("proxyPass"));
+            params.push("--proxy-pass", `"${core.getInput("proxyPass")}"`);
         }
         if (core.getInput("sharedTunnel")) {
             params.push("--shared-tunnel");
@@ -171,7 +171,7 @@ function getTunnelParams(port) {
             params.push("--ingress-only");
         }
         if (core.getInput("dns")) {
-            params.push("--dns", core.getInput("dns"));
+            params.push("--dns", `"${core.getInput("dns")}"`);
         }
         if (core.getInput("verbose")) {
             params.push("-v");
@@ -180,6 +180,7 @@ function getTunnelParams(port) {
         return params;
     });
 }
+run();
 
 
 /***/ }),
@@ -287,18 +288,6 @@ function escapeProperty(s) {
         .replace(/,/g, '%2C');
 }
 //# sourceMappingURL=command.js.map
-
-/***/ }),
-
-/***/ 440:
-/***/ (function(__unusedmodule, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const main_1 = __webpack_require__(198);
-main_1.run();
-
 
 /***/ }),
 
