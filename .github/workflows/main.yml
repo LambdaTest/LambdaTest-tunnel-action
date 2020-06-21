@@ -22,13 +22,13 @@ jobs:
         with:
           user: ${{ secrets.LT_EMAIL }}
           accessKey: ${{ secrets.LT_ACCESS_KEY }}
-          tunnelName: "testTunnel"
+          tunnelName: "test tunnel"
 
       - name: Run Test Case
         env:
           username: ${{ secrets.LT_USERNAME }}
           accessKey: ${{ secrets.LT_ACCESS_KEY }}
-          tunnelName: "testTunnel"
+          tunnelName: "test tunnel"
 
         run: npm test
 
