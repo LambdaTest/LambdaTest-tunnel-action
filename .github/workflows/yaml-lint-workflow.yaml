@@ -1,0 +1,21 @@
+name: reviewdog
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master 
+      - stage
+jobs:
+  yamllint:
+    name: yamllint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: yamllint
+        uses: reviewdog/action-yamllint@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-review # Change reporter.
+          yamllint_flags: 'src/'
