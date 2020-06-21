@@ -1,7 +1,9 @@
 ![LAMBDATEST Logo](http://labs.lambdatest.com/images/fills-copy.svg)
 # LambdaTest Tunnel Action
 
-![Test Tunnel](https://github.com/LambdaTest/lambdatest-tunnel-action/workflows/Test%20Tunnel/badge.svg)
+![Lint](https://github.com/LambdaTest/lambdatest-tunnel-action/workflows/lint/badge.svg?style=for-the-badge&logo=github)
+![Test Tunnel](https://github.com/LambdaTest/lambdatest-tunnel-action/workflows/Test%20Tunnel/badge.svg?style=for-the-badge&logo=github)
+
 
 This action seamlessly integrates LambdaTest Tunnel and
 run Selenium tests on 2000+ browsers for your locally hosted or
