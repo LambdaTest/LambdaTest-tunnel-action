@@ -37,7 +37,7 @@ inputs:
 
 outputs:
   port: # id of output
-    description: "Port on which api server is running"
+    description: "Port on which tunnel api server is running"
   logFileName:
     description: "Name of log file of tunnel"
 
