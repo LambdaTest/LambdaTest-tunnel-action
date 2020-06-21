@@ -105,13 +105,34 @@ const core = __importStar(__webpack_require__(470));
 const crypto_1 = __importDefault(__webpack_require__(417));
 const get_port_1 = __importDefault(__webpack_require__(923));
 const child_process_1 = __importDefault(__webpack_require__(129));
+/**
+ * Name of state that stores port number of the tunnel
+ */
+const STATE_PORT = 'port';
 function run() {
+    return __awaiter(this, void 0, void 0, function* () {
+        /**
+         * The environment variable that is defined only when post script is running
+         * @see https://github.com/actions/checkout/blob/v2.3.1/src/state-helper.ts#L6
+         */
+        let isPost = !!process.env['STATE_isPost'];
+        if (isPost) {
+            cleanup();
+        }
+        else {
+            launch();
+        }
+    });
+}
+exports.run = run;
+function launch() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             let port = yield get_port_1.default();
             let name = crypto_1.default.randomBytes(10).toString("hex");
             core.setOutput("port", port);
             core.setOutput("logFileName", name);
+            core.saveState(STATE_PORT, port);
             let params = (yield getTunnelParams(port)).join(" ");
             let dockerPullCmd = "docker pull lambdatest/tunnel:latest";
             core.info(dockerPullCmd);
@@ -139,7 +160,6 @@ function run() {
         }
     });
 }
-exports.run = run;
 function getTunnelParams(port) {
     return __awaiter(this, void 0, void 0, function* () {
         let params = [];
@@ -178,6 +198,15 @@ function getTunnelParams(port) {
         }
         params.push("--controller", "github", "--infoAPIPort", `${port}`);
         return params;
+    });
+}
+function cleanup() {
+    return __awaiter(this, void 0, void 0, function* () {
+        let port = core.getState(STATE_PORT);
+        let stopTunnelCmd = `curl -X DELETE http://127.0.0.1:${port}/api/v1.0/stop`;
+        core.info('Gracefully close the tunnel:');
+        core.info(stopTunnelCmd);
+        child_process_1.default.execSync(stopTunnelCmd, { stdio: "inherit" });
     });
 }
 

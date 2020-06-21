@@ -3,12 +3,31 @@ import crypto from "crypto";
 import getPort from "get-port";
 import childProcess from "child_process";
 
+/**
+ * Name of state that stores port number of the tunnel
+ */
+const STATE_PORT = 'port';
+
 export async function run() {
+  /**
+   * The environment variable that is defined only when post script is running
+   * @see https://github.com/actions/checkout/blob/v2.3.1/src/state-helper.ts#L6
+   */
+  let isPost = !!process.env['STATE_isPost'];
+  if (isPost) {
+    cleanup();
+  } else {
+    launch();
+  }
+}
+
+async function launch() {
   try {
     let port: Number = await getPort();
     let name: string = crypto.randomBytes(10).toString("hex");
     core.setOutput("port", port);
     core.setOutput("logFileName", name);
+    core.saveState(STATE_PORT, port);
     let params: string = (await getTunnelParams(port)).join(" ");
 
     let dockerPullCmd: string = "docker pull lambdatest/tunnel:latest";
@@ -79,4 +98,12 @@ async function getTunnelParams(port: Number) {
 
   params.push("--controller", "github", "--infoAPIPort", `${port}`);
   return params;
+}
+
+async function cleanup() {
+  let port = core.getState(STATE_PORT);
+  let stopTunnelCmd: string = `curl -X DELETE http://127.0.0.1:${port}/api/v1.0/stop`;
+  core.info('Gracefully close the tunnel:');
+  core.info(stopTunnelCmd);
+  childProcess.execSync(stopTunnelCmd, { stdio: "inherit" });
 }

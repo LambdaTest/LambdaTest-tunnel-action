@@ -44,6 +44,7 @@ outputs:
 runs:
   using: "node12"
   main: "dist/index.js"
+  post: "dist/index.js"
   
 branding:
   icon: 'wifi'  

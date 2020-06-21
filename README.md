@@ -19,18 +19,13 @@ jobs:
         steps:
             # ...
             -name: Start Tunnel
-             uses: LambdaTest/LambdaTest-tunnel-action@v1.0.0
+             uses: LambdaTest/LambdaTest-tunnel-action@v1.1.0
              id: tunnel
              with:
                user: ${{ secrets.LT_EMAIL }}
                accessKey: ${{ secrets.LT_ACCESS_KEY }}
                tunnelName: "testTunnel"
             - run: npm test
-              
-            # Gracefully close the tunnel  
-            - name: Stop Tunnel
-              run: curl  -X DELETE http://127.0.0.1:${{ steps.tunnel.outputs.port }}/api/v1.0/stop
-
             - name: Export Tunnel Logs for debugging
               uses: actions/upload-artifact@v2
               with:
