@@ -1,9 +1,9 @@
 ![LAMBDATEST Logo](http://labs.lambdatest.com/images/fills-copy.svg)
 # LambdaTest Tunnel Action
 
-![Lint](https://img.shields.io/github/workflow/status/LambdaTest/action-tunnel/lint?logo=github&style=for-the-badge)
-![Test Tunnel](https://img.shields.io/github/workflow/status/LambdaTest/action-tunnel/Test%20Tunnel?logo=github&style=for-the-badge)
-![Releases](https://img.shields.io/github/v/release/LambdaTest/action-tunnel?logo=github&style=for-the-badge)
+![Lint](https://img.shields.io/github/workflow/status/LambdaTest/LambdaTest-tunnel-action/lint?logo=github&style=for-the-badge)
+![Test Tunnel](https://img.shields.io/github/workflow/status/LambdaTest/LambdaTest-tunnel-action/Test%20Tunnel?logo=github&style=for-the-badge)
+![Releases](https://img.shields.io/github/v/release/LambdaTest/LambdaTest-tunnel-action?logo=github&style=for-the-badge)
 
 
 This action seamlessly integrates LambdaTest Tunnel and
