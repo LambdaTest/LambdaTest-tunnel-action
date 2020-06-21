@@ -111,10 +111,12 @@ const child_process_1 = __importDefault(__webpack_require__(129));
 const STATE_PORT = "port";
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
+        // if state is already setup, then kick off the cleanup
         if (!!core.getState(STATE_PORT)) {
             cleanup();
         }
         else {
+            // start the tunnel
             launch();
         }
     });

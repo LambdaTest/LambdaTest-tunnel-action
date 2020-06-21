@@ -9,9 +9,11 @@ import childProcess from "child_process";
 const STATE_PORT = "port";
 
 export async function run() {
+  // if state is already setup, then kick off the cleanup
   if (!!core.getState(STATE_PORT)) {
     cleanup();
   } else {
+    // start the tunnel
     launch();
   }
 }
