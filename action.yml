@@ -46,5 +46,5 @@ runs:
   main: "dist/index.js"
   
 branding:
-  icon: 'tool'  
+  icon: 'chrome'  
   color: 'orange'
