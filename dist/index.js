@@ -111,12 +111,7 @@ const child_process_1 = __importDefault(__webpack_require__(129));
 const STATE_PORT = 'port';
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
-        /**
-         * The environment variable that is defined only when post script is running
-         * @see https://github.com/actions/checkout/blob/v2.3.1/src/state-helper.ts#L6
-         */
-        let isPost = !!process.env['STATE_isPost'];
-        if (isPost) {
+        if (!!core.getState(STATE_PORT)) {
             cleanup();
         }
         else {

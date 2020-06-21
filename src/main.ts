@@ -9,12 +9,7 @@ import childProcess from "child_process";
 const STATE_PORT = 'port';
 
 export async function run() {
-  /**
-   * The environment variable that is defined only when post script is running
-   * @see https://github.com/actions/checkout/blob/v2.3.1/src/state-helper.ts#L6
-   */
-  let isPost = !!process.env['STATE_isPost'];
-  if (isPost) {
+  if (!!core.getState(STATE_PORT)) {
     cleanup();
   } else {
     launch();
