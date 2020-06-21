@@ -19,7 +19,7 @@ jobs:
         steps:
             # ...
             -name: Start Tunnel
-             uses: LambdaTest/LambdaTest-tunnel-action@v1.1.0
+             uses: LambdaTest/LambdaTest-tunnel-action@v1
              id: tunnel
              with:
                user: ${{ secrets.LT_EMAIL }}
