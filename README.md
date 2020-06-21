@@ -48,6 +48,7 @@ jobs:
 ### `accessKey`
 
 **Required** LambdaTest user Access Key.
+> We suggest using [github secrets](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) for storing LambdaTest access key
 
 ### `tunnelName`
 
