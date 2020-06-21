@@ -46,5 +46,5 @@ runs:
   main: "dist/index.js"
   
 branding:
-  icon: 'wifi'  
+  icon: 'tool'  
   color: 'orange'
