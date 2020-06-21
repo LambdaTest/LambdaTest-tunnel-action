@@ -9,7 +9,7 @@ privately hosted pages with LambdaTest Selenium Grid.
 
 ## Example usage
 
-```
+```yaml
 jobs:
     test-tunnel:
         runs-on: ubuntu-latest
