@@ -23,7 +23,8 @@ jobs:
                accessKey: ${{ secrets.LT_ACCESS_KEY }}
                tunnelName: "testTunnel"
             - run: npm test
-
+              
+            # Gracefully close the tunnel  
             - name: Stop Tunnel
               run: curl  -X DELETE http://127.0.0.1:${{ steps.tunnel.outputs.port }}/api/v1.0/stop
 
