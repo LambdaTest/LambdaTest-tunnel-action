@@ -33,7 +33,7 @@ inputs:
     required: false
   dns:
     description: "Comma separated list of dns servers"
-    required: false
+      required: false
 
 outputs:
   port: # id of output
