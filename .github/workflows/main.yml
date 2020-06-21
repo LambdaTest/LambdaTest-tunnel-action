@@ -2,6 +2,8 @@ name: Test Tunnel
 
 on: push
 
+gibberish
+
 jobs:
   test-tunnel:
     runs-on: ubuntu-latest
