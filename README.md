@@ -1,9 +1,9 @@
 ![LAMBDATEST Logo](http://labs.lambdatest.com/images/fills-copy.svg)
 # LambdaTest Tunnel Action
 
-![Lint](https://img.shields.io/github/workflow/status/LambdaTest/LambdaTest-tunnel-action/lint?logo=github&style=for-the-badge)
-![Test Tunnel](https://img.shields.io/github/workflow/status/LambdaTest/LambdaTest-tunnel-action/Test%20Tunnel?logo=github&style=for-the-badge)
-![Releases](https://img.shields.io/github/v/release/LambdaTest/LambdaTest-tunnel-action?logo=github&style=for-the-badge&t=1)
+![Lint](https://img.shields.io/github/workflow/status/LambdaTest/LambdaTest-tunnel-action/lint?label=LINT&style=for-the-badge&logo=github)
+![Test Tunnel](https://img.shields.io/github/workflow/status/LambdaTest/LambdaTest-tunnel-action/Test%20Tunnel?logo=github&style=for-the-badge&label=Test%20Tunnel)
+![Releases](https://img.shields.io/github/v/release/LambdaTest/LambdaTest-tunnel-action?logo=github&style=for-the-badge)
 
 
 This action seamlessly integrates LambdaTest Tunnel and
@@ -43,6 +43,7 @@ jobs:
 ### `accessKey`
 
 **Required** LambdaTest user Access Key.
+> We suggest using [github secrets](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) for storing LambdaTest access key
 
 ### `tunnelName`
 

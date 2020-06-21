@@ -6,7 +6,7 @@ import childProcess from "child_process";
 /**
  * Name of state that stores port number of the tunnel
  */
-const STATE_PORT = 'port';
+const STATE_PORT = "port";
 
 export async function run() {
   if (!!core.getState(STATE_PORT)) {
@@ -64,19 +64,19 @@ async function getTunnelParams(port: Number) {
     params.push("--key", core.getInput("accessKey"));
   }
   if (core.getInput("tunnelName")) {
-    params.push("--tunnelName", core.getInput("tunnelName"));
+    params.push("--tunnelName", `"${core.getInput("tunnelName")}"`);
   }
   if (core.getInput("proxyHost")) {
-    params.push("--proxy-host", core.getInput("proxyHost"));
+    params.push("--proxy-host", `"${core.getInput("proxyHost")}"`);
   }
   if (core.getInput("proxyPort")) {
-    params.push("--proxy-port", core.getInput("proxyPort"));
+    params.push("--proxy-port", `"${core.getInput("proxyPort")}"`);
   }
   if (core.getInput("proxyUser")) {
-    params.push("--proxy-user", core.getInput("proxyUser"));
+    params.push("--proxy-user", `"${core.getInput("proxyUser")}"`);
   }
   if (core.getInput("proxyPass")) {
-    params.push("--proxy-pass", core.getInput("proxyPass"));
+    params.push("--proxy-pass", `"${core.getInput("proxyPass")}"`);
   }
   if (core.getInput("sharedTunnel")) {
     params.push("--shared-tunnel");
@@ -85,7 +85,7 @@ async function getTunnelParams(port: Number) {
     params.push("--ingress-only");
   }
   if (core.getInput("dns")) {
-    params.push("--dns", core.getInput("dns"));
+    params.push("--dns", `"${core.getInput("dns")}"`);
   }
   if (core.getInput("verbose")) {
     params.push("-v");
@@ -98,7 +98,8 @@ async function getTunnelParams(port: Number) {
 async function cleanup() {
   let port = core.getState(STATE_PORT);
   let stopTunnelCmd: string = `curl -X DELETE http://127.0.0.1:${port}/api/v1.0/stop`;
-  core.info('Gracefully close the tunnel:');
+  core.info("Gracefully close the tunnel:");
   core.info(stopTunnelCmd);
   childProcess.execSync(stopTunnelCmd, { stdio: "inherit" });
 }
+run();
