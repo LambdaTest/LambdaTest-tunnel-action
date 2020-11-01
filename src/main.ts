@@ -86,6 +86,12 @@ async function getTunnelParams(port: Number) {
   if (core.getInput("ingressOnly")) {
     params.push("--ingress-only");
   }
+  if (core.getInput("egressOnly")) {
+    params.push("--egress-only");
+  }
+  if (core.getInput("mitm")) {
+    params.push("--mitm");
+  }
   if (core.getInput("dns")) {
     params.push("--dns", `"${core.getInput("dns")}"`);
   }

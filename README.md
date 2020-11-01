@@ -73,6 +73,14 @@ Sharing tunnel among team members.
 
 Routes only incoming traffic via the proxy specified.
 
+### `egressOnly`
+
+Routes only outgoing traffic via the proxy specified.
+
+### `mitm`
+
+Enable Man in the Middle Mode
+
 ### `dns`
 
 Comma separated list of dns servers.

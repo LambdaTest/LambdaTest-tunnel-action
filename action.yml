@@ -31,6 +31,12 @@ inputs:
   ingressOnly:
     description: "Routes only incoming traffic via the proxy specified"
     required: false
+  egressOnly:
+    description: "Routes only outgoing traffic via the proxy specified"
+    required: false
+  mitm:
+    description: "Enable Man in the Middle Mode"
+    required: false
   dns:
     description: "Comma separated list of dns servers"
     required: false
