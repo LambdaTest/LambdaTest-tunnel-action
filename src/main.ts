@@ -22,8 +22,9 @@ async function launch() {
   try {
     let port: Number = await getPort();
     let name: string = crypto.randomBytes(10).toString("hex");
+    let logFileName = name+".log";
     core.setOutput("port", port);
-    core.setOutput("logFileName", name);
+    core.setOutput("logFileName", logFileName);
     core.saveState(STATE_PORT, port);
     let params: string = (await getTunnelParams(port)).join(" ");
 
@@ -43,7 +44,7 @@ async function launch() {
     core.info(checkTunnelCmd);
     childProcess.execSync(checkTunnelCmd, { stdio: "inherit" });
 
-    let dockerLogsCmd: string = `docker logs -f ${name} > ${name} 2>&1 &`;
+    let dockerLogsCmd: string = `docker logs -f ${name} > ${logFileName} 2>&1 &`;
     core.info(dockerLogsCmd);
     childProcess.execSync(dockerLogsCmd, {
       stdio: "inherit",
@@ -85,6 +86,12 @@ async function getTunnelParams(port: Number) {
   }
   if (core.getInput("ingressOnly")) {
     params.push("--ingress-only");
+  }
+  if (core.getInput("egressOnly")) {
+    params.push("--egress-only");
+  }
+  if (core.getInput("mitm")) {
+    params.push("--mitm");
   }
   if (core.getInput("dns")) {
     params.push("--dns", `"${core.getInput("dns")}"`);
