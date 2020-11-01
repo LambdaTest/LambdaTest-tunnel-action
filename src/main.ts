@@ -23,7 +23,7 @@ async function launch() {
     let port: Number = await getPort();
     let name: string = crypto.randomBytes(10).toString("hex");
     core.setOutput("port", port);
-    core.setOutput("logFileName", name);
+    core.setOutput("logFileName", name+".log");
     core.saveState(STATE_PORT, port);
     let params: string = (await getTunnelParams(port)).join(" ");
 
