@@ -98,3 +98,7 @@ Port on which tunnel api server is running.
 ### `logFileName`
 
 Name of log file of tunnel.
+
+### `loadBalanced`
+
+Run tunnel in load balanced mode.

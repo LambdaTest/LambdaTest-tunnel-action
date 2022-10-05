@@ -22,7 +22,7 @@ async function launch() {
   try {
     let port: Number = await getPort();
     let name: string = crypto.randomBytes(10).toString("hex");
-    let logFileName = name+".log";
+    let logFileName = name + ".log";
     core.setOutput("port", port);
     core.setOutput("logFileName", logFileName);
     core.saveState(STATE_PORT, port);
@@ -98,6 +98,9 @@ async function getTunnelParams(port: Number) {
   }
   if (core.getInput("verbose")) {
     params.push("-v");
+  }
+  if (core.getInput("loadBalanced")) {
+    params.push("--load-balanced");
   }
 
   params.push("--controller", "github", "--infoAPIPort", `${port}`);
