@@ -40,6 +40,9 @@ inputs:
   dns:
     description: "Comma separated list of dns servers"
     required: false
+  loadBalanced:
+    description: "Enable Load Balanced Mode"
+    required: false
 
 outputs:
   port: # id of output

@@ -89,6 +89,10 @@ Comma separated list of dns servers.
 
 Run tunnel in verbose mode.
 
+### `loadBalanced`
+
+Run tunnel in load balanced mode.
+
 ## Outputs
 
 ### `port`
@@ -99,6 +103,3 @@ Port on which tunnel api server is running.
 
 Name of log file of tunnel.
 
-### `loadBalanced`
-
-Run tunnel in load balanced mode.
