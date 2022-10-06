@@ -262,6 +262,9 @@ function getTunnelParams(port) {
         if (core.getInput("verbose")) {
             params.push("-v");
         }
+        if (core.getInput("loadBalanced")) {
+            params.push("--load-balanced");
+        }
         params.push("--controller", "github", "--infoAPIPort", `${port}`);
         return params;
     });
