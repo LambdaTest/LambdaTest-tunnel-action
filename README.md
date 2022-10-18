@@ -93,6 +93,10 @@ Run tunnel in verbose mode.
 
 Run tunnel in load balanced mode.
 
+### `bypassHosts`
+
+Comma separated list of host to bypass from tunnel.
+
 ## Outputs
 
 ### `port`

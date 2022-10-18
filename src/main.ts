@@ -102,7 +102,9 @@ async function getTunnelParams(port: Number) {
   if (core.getInput("loadBalanced")) {
     params.push("--load-balanced");
   }
-
+  if (core.getInput("bypassHosts")) {
+    params.push("--bypassHosts", `"${core.getInput("bypassHosts")}"`);
+  }
   params.push("--controller", "github", "--infoAPIPort", `${port}`);
   return params;
 }
