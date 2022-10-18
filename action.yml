@@ -43,7 +43,9 @@ inputs:
   loadBalanced:
     description: "Enable Load Balanced Mode"
     required: false
-
+  bypassHosts:
+    description: "Comma separated list of host to bypass from tunnel"
+    required: false
 outputs:
   port: # id of output
     description: "Port on which tunnel api server is running"
