@@ -22,7 +22,7 @@ jobs:
         with:
           user: ${{ secrets.LT_EMAIL }}
           accessKey: ${{ secrets.LT_ACCESS_KEY }}
-          basicAuth: ${{ secrets.HEROKUBASICAUTH }}
+          basicAuth: "https://admin:admin@the-internet.herokuapp.com/basic_auth"
           tunnelName: "Dummy tunnel"
           verbose: true
           mitm: true
