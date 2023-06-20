@@ -25,6 +25,7 @@ jobs:
           basicAuth: ${{ secrets.HEROKUBASICAUTH }}
           tunnelName: "test tunnel"
           verbose: true
+          mitm: true
 
       - name: Run Test Case
         env:
