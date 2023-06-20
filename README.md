@@ -101,7 +101,7 @@ Comma separated list of host to bypass from tunnel.
 
 Add basicAuth to provided hosts on the format "https://USER:PWD@YourWebsite.com"
 > We suggest using [github secrets](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)
-sensitive information
+for sensitive information
 
 ## Outputs
 
