@@ -23,7 +23,7 @@ jobs:
           user: ${{ secrets.LT_EMAIL }}
           accessKey: ${{ secrets.LT_ACCESS_KEY }}
           basicAuth: ${{ secrets.HEROKUBASICAUTH }}
-          tunnelName: "Dummy tunnel"
+          tunnelName: "Action Tunnel"
           verbose: true
           mitm: true
 
@@ -31,7 +31,7 @@ jobs:
         env:
           username: ${{ secrets.LT_USERNAME }}
           accessKey: ${{ secrets.LT_ACCESS_KEY }}
-          tunnelName: "Dummy tunnel"
+          tunnelName: "Action Tunnel"
 
         run: npm test
 
