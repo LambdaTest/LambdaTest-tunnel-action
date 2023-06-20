@@ -97,6 +97,10 @@ Run tunnel in load balanced mode.
 
 Comma separated list of host to bypass from tunnel.
 
+### `basicAuth`
+
+Add basicAuth to provided hosts on the format https://USER:PWD@YourWebsite.com
+
 ## Outputs
 
 ### `port`
