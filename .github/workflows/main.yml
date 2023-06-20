@@ -23,7 +23,7 @@ jobs:
           user: ${{ secrets.LT_EMAIL }}
           accessKey: ${{ secrets.LT_ACCESS_KEY }}
           basicAuth: ${{ secrets.HEROKUBASICAUTH }}
-          tunnelName: "Modified Test Tunnel"
+          tunnelName: "Modified Test Tunnel2"
           verbose: true
           mitm: true
 
