@@ -22,6 +22,7 @@ jobs:
         with:
           user: ${{ secrets.LT_EMAIL }}
           accessKey: ${{ secrets.LT_ACCESS_KEY }}
+          basicAuth: ${{ secrets.HEROKUBASICAUTH }}
           tunnelName: "test tunnel"
 
       - name: Run Test Case
