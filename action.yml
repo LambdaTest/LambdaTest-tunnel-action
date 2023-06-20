@@ -47,8 +47,8 @@ inputs:
     description: "Comma separated list of host to bypass from tunnel"
     required: false
   basicAuth:
-    description: "Basic Auth in the following format https://USER:PWD@YourSite.com"
-    required: false
+    description: "Basic Auth in the following format"
+    required: true
 outputs:
   port: # id of output
     description: "Port on which tunnel api server is running"
