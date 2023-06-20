@@ -34,7 +34,7 @@ async function launch() {
       stdio: "inherit",
     });
 
-    let dockerRunCmd: string = `docker run --name=${name} -d=true --net=host lambdatest/tunnel:latest ${params} --basic-auth https://admin:admin@the-internet.herokuapp.com/basic_auth`;
+    let dockerRunCmd: string = `docker run --name=${name} -d=true --net=host lambdatest/tunnel:latest ${params}`;
     core.info(dockerRunCmd);
     childProcess.execSync(dockerRunCmd, {
       stdio: "inherit",

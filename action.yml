@@ -48,7 +48,7 @@ inputs:
     required: false
   basicAuth:
     description: "Basic Auth in the following format"
-    required: true
+    required: false
 outputs:
   port: # id of output
     description: "Port on which tunnel api server is running"
