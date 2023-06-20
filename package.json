@@ -7,7 +7,7 @@
     "build": "tsc && ncc build",
     "test": "run-p test:*",
     "test:server": "http-server -p 8888 ./test > /dev/null 2>&1 &",
-    "test:run": "node ./test/test.js"
+    "test:run": "node ./test/test3.js"
   },
   "repository": {
     "type": "git",
