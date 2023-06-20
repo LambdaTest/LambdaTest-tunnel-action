@@ -12,7 +12,7 @@ async function executeTest() {
     video: true,
     tunnelName: process.env.tunnelName,
     name: "Test 3", // name of the test
-    build: "NodeJS build", // name of the build
+    build: "Test Lambda Action", // name of the build
   };
 
   // URL: https://{username}:{accessKey}@hub.lambdatest.com/wd/hub
