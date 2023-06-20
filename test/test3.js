@@ -11,7 +11,7 @@ async function executeTest() {
     tunnel: true,
     video: true,
     tunnelName: process.env.tunnelName,
-    name: "Test 2", // name of the test
+    name: "Test 3", // name of the test
     build: "NodeJS build", // name of the build
   };
 
