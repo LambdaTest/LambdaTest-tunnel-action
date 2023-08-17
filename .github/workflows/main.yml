@@ -1,10 +1,9 @@
 name: Test Tunnel
 
-on:  # yamllint disable-line rule:truthy
+on: # yamllint disable-line rule:truthy
   pull_request:
     branches:
       - master
-
 
 jobs:
   test-tunnel:
@@ -27,14 +26,14 @@ jobs:
           user: ${{ secrets.LT_USERNAME }}
           accessKey: ${{ secrets.LT_ACCESS_KEY }}
           basicAuth: ${{ secrets.LT_BASIC_AUTH }}
-          tunnelName: ${{ format('test-tunnel-{0}', env.GITHUB_RUN_ID) }}
+          tunnelName: "test-tunnel-${{github.run_number}}"
           verbose: true
 
       - name: Run Test Case
         env:
           username: ${{ secrets.LT_USERNAME }}
           accessKey: ${{ secrets.LT_ACCESS_KEY }}
-          tunnelName: ${{ format('test-tunnel-{0}', env.GITHUB_RUN_ID) }}
+          tunnelName: "test-tunnel-${{github.run_number}}"
 
         run: npm test
 
