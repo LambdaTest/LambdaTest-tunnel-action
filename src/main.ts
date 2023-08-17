@@ -46,7 +46,8 @@ async function launch() {
     try {
       childProcess.execSync(checkTunnelCmd, { stdio: "inherit" });
     } catch (error) {
-      core.error('error while starting tunnel', error)
+      console.log(error);
+      core.error('error while starting tunnel', error.message)
       checkTunnelErr = error;
     }
 

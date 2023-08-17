@@ -22,7 +22,7 @@ jobs:
              uses: LambdaTest/LambdaTest-tunnel-action@v1
              id: tunnel
              with:
-               user: ${{ secrets.LT_EMAIL }}
+               user: ${{ secrets.LT_USERNAME }}
                accessKey: ${{ secrets.LT_ACCESS_KEY }}
                tunnelName: "testTunnel"
             - run: npm test
