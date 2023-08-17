@@ -4,7 +4,7 @@ on:  # yamllint disable-line rule:truthy
   pull_request:
     branches:
       - master
-  push:
+
 
 jobs:
   test-tunnel:
@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 16
       - run: npm install
@@ -27,14 +27,14 @@ jobs:
           user: ${{ secrets.LT_USERNAME }}
           accessKey: ${{ secrets.LT_ACCESS_KEY }}
           basicAuth: ${{ secrets.LT_BASIC_AUTH }}
-          tunnelName: "test tunnel"
+          tunnelName: ${{ format('test-tunnel-{0}', env.GITHUB_RUN_ID) }}
           verbose: true
 
       - name: Run Test Case
         env:
           username: ${{ secrets.LT_USERNAME }}
           accessKey: ${{ secrets.LT_ACCESS_KEY }}
-          tunnelName: "test tunnel"
+          tunnelName: ${{ format('test-tunnel-{0}', env.GITHUB_RUN_ID) }}
 
         run: npm test
 
