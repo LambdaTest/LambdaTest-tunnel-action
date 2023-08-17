@@ -1,10 +1,9 @@
-![LAMBDATEST Logo](http://labs.lambdatest.com/images/fills-copy.svg)
+![LAMBDATEST Logo](https://www.lambdatest.com/resources/images/logos/logo.svg)
 # LambdaTest Tunnel Action
 
-![Lint](https://img.shields.io/github/workflow/status/LambdaTest/LambdaTest-tunnel-action/lint?label=LINT&style=for-the-badge&logo=github)
-![Test Tunnel](https://img.shields.io/github/workflow/status/LambdaTest/LambdaTest-tunnel-action/Test%20Tunnel?logo=github&style=for-the-badge&label=Test%20Tunnel)
-![Releases](https://img.shields.io/github/v/release/LambdaTest/LambdaTest-tunnel-action?logo=github&style=for-the-badge)
+[![Test](https://github.com/LambdaTest/LambdaTest-tunnel-action/actions/workflows/main.yml/badge.svg?branch=master&event=push)](https://github.com/LambdaTest/LambdaTest-tunnel-action/actions/workflows/main.yml)
 
+[![Releases](https://github.com/LambdaTest/LambdaTest-tunnel-action/actions/workflows/update_semver.yml/badge.svg)](https://github.com/LambdaTest/LambdaTest-tunnel-action/actions/workflows/update_semver.yml)
 
 This action seamlessly integrates LambdaTest Tunnel and
 run Selenium tests on 2000+ browsers for your locally hosted or
