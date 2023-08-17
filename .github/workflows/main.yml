@@ -12,10 +12,10 @@ jobs:
 
     steps:
       - name: Check out Git repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
 
-      - name: Install Node.js, NPM and Yarn
-        uses: actions/setup-node@v1
+      - name: Setup Node
+        uses: actions/setup-node@v2
         with:
           node-version: 16
       - run: npm install
@@ -37,7 +37,7 @@ jobs:
         run: npm test
 
       - name: Export Tunnel Logs for debugging
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: always()
         with:
           name: tunnel_logs
