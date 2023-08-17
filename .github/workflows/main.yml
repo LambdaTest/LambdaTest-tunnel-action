@@ -22,7 +22,10 @@ jobs:
         with:
           user: ${{ secrets.LT_EMAIL }}
           accessKey: ${{ secrets.LT_ACCESS_KEY }}
+          basicAuth: ${{ secrets.LT_BASIC_AUTH }}
           tunnelName: "test tunnel"
+          verbose: true
+          mitm: true
 
       - name: Run Test Case
         env:

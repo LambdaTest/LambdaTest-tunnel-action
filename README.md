@@ -97,6 +97,12 @@ Run tunnel in load balanced mode.
 
 Comma separated list of host to bypass from tunnel.
 
+### `basicAuth`
+
+Add basicAuth to provided hosts on the format "https://USER:PWD@YourWebsite.com"
+> We suggest using [github secrets](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)
+for sensitive information
+
 ## Outputs
 
 ### `port`
