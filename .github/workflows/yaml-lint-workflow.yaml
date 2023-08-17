@@ -8,7 +8,7 @@ jobs:
     name: yamllint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: yamllint
         uses: reviewdog/action-yamllint@v1
         with:
