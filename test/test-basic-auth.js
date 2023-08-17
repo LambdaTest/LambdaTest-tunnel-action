@@ -24,7 +24,7 @@ async function executeTest() {
     .build();
 
   try {
-    await driver.get("https://the-internet.herokuapp.com/basic_auth");
+    await driver.get("http://the-internet.herokuapp.com/basic_auth");
     const content = await driver.findElement(webdriver.By.xpath("(//p[contains(text(),'Congratulations! You must have the proper credenti')])[1]"));
     assert.strictEqual(await content.getText(), "Congratulations! You must have the proper credentials.");
   } finally {

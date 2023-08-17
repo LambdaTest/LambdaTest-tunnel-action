@@ -1,12 +1,8 @@
 name: lint
 on:
-  push:
-    branches:
-      - master
   pull_request:
     branches:
       - master
-      - stage
 jobs:
   yamllint:
     name: yamllint

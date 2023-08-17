@@ -29,7 +29,6 @@ jobs:
           basicAuth: ${{ secrets.LT_BASIC_AUTH }}
           tunnelName: "test tunnel"
           verbose: true
-          mitm: true
 
       - name: Run Test Case
         env:
