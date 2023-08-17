@@ -42,13 +42,23 @@ async function launch() {
 
     let checkTunnelCmd: string = `curl -s --retry-connrefused --connect-timeout 5 --max-time 5 --retry 30 --retry-delay 2 --retry-max-time 60 http://127.0.0.1:${port}/api/v1.0/info`;
     core.info(checkTunnelCmd);
-    childProcess.execSync(checkTunnelCmd, { stdio: "inherit" });
+    let checkTunnelErr: any;
+    try {
+      childProcess.execSync(checkTunnelCmd, { stdio: "inherit" });
+    } catch (error) {
+      core.error('error while starting tunnel', error.message)
+      checkTunnelErr = error;
+    }
 
     let dockerLogsCmd: string = `docker logs -f ${name} > ${logFileName} 2>&1 &`;
     core.info(dockerLogsCmd);
     childProcess.execSync(dockerLogsCmd, {
       stdio: "inherit",
     });
+
+    if (checkTunnelErr) {
+      throw checkTunnelErr;
+    }
 
     core.info("Tunnel is running now");
   } catch (error) {
