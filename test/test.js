@@ -7,7 +7,7 @@ async function executeTest() {
   const capabilities = {
     platform: "windows 10",
     browserName: "chrome",
-    version: "75.0",
+    version: "114.0",
     tunnel: true,
     video: true,
     tunnelName: process.env.tunnelName,
