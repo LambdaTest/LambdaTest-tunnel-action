@@ -53,7 +53,7 @@ outputs:
     description: "Name of log file of tunnel"
 
 runs:
-  using: "node12"
+  using: "node16"
   main: "dist/index.js"
   post: "dist/index.js"
   
