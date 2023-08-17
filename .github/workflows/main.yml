@@ -24,7 +24,7 @@ jobs:
         id: tunnel
         uses: ./ # Uses an action in the root directory
         with:
-          user: ${{ secrets.LT_EMAIL }}
+          user: ${{ secrets.LT_USERNAME }}
           accessKey: ${{ secrets.LT_ACCESS_KEY }}
           tunnelName: "test tunnel"
 
@@ -38,6 +38,7 @@ jobs:
 
       - name: Export Tunnel Logs for debugging
         uses: actions/upload-artifact@v2
+        if: always()
         with:
           name: tunnel_logs
           path: ${{ steps.tunnel.outputs.logFileName }}
