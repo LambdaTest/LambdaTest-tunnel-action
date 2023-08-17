@@ -82,17 +82,22 @@ function launch() {
             });
             let checkTunnelCmd = `curl -s --retry-connrefused --connect-timeout 5 --max-time 5 --retry 30 --retry-delay 2 --retry-max-time 60 http://127.0.0.1:${port}/api/v1.0/info`;
             core.info(checkTunnelCmd);
+            let checkTunnelErr;
             try {
                 child_process_1.default.execSync(checkTunnelCmd, { stdio: "inherit" });
             }
             catch (error) {
-                core.error('error while starting tunnel', error);
+                core.error('error while starting tunnel', error.message);
+                checkTunnelErr = error;
             }
             let dockerLogsCmd = `docker logs -f ${name} > ${logFileName} 2>&1 &`;
             core.info(dockerLogsCmd);
             child_process_1.default.execSync(dockerLogsCmd, {
                 stdio: "inherit",
             });
+            if (checkTunnelErr) {
+                throw checkTunnelErr;
+            }
             core.info("Tunnel is running now");
         }
         catch (error) {
@@ -148,6 +153,9 @@ function getTunnelParams(port) {
         }
         if (core.getInput("bypassHosts")) {
             params.push("--bypassHosts", `"${core.getInput("bypassHosts")}"`);
+        }
+        if (core.getInput("basicAuth")) {
+            params.push("--basic-auth", core.getInput("basicAuth"));
         }
         params.push("--controller", "github", "--infoAPIPort", `${port}`);
         return params;

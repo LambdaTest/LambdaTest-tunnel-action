@@ -46,7 +46,6 @@ async function launch() {
     try {
       childProcess.execSync(checkTunnelCmd, { stdio: "inherit" });
     } catch (error) {
-      console.log(error);
       core.error('error while starting tunnel', error.message)
       checkTunnelErr = error;
     }
@@ -115,6 +114,9 @@ async function getTunnelParams(port: Number) {
   }
   if (core.getInput("bypassHosts")) {
     params.push("--bypassHosts", `"${core.getInput("bypassHosts")}"`);
+  }
+  if (core.getInput("basicAuth")) {
+    params.push("--basic-auth", core.getInput("basicAuth"));
   }
   params.push("--controller", "github", "--infoAPIPort", `${port}`);
   return params;
