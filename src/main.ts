@@ -2,7 +2,6 @@ import * as core from "@actions/core";
 import crypto from "crypto";
 import getPort from "get-port";
 import childProcess from "child_process";
-import { error } from "console";
 
 /**
  * Name of state that stores port number of the tunnel
@@ -60,7 +59,7 @@ async function launch() {
     if (checkTunnelErr) {
       throw checkTunnelErr;
     }
-    
+
     core.info("Tunnel is running now");
   } catch (error) {
     core.error(error);
