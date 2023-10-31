@@ -10,7 +10,7 @@ run Selenium tests on 2000+ browsers for your locally hosted or
 privately hosted pages with LambdaTest Selenium Grid.
 
 ## Example usage
-
+  
 ```yaml
 jobs:
     test-tunnel:
