@@ -112,3 +112,7 @@ Port on which tunnel api server is running.
 
 Name of log file of tunnel.
 
+### `usePrivateIP`
+
+Tunnel to use system private IP for remote connections.
+  

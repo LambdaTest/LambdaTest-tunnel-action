@@ -157,6 +157,9 @@ function getTunnelParams(port) {
         if (core.getInput("basicAuth")) {
             params.push("--basic-auth", core.getInput("basicAuth"));
         }
+        if (core.getInput("usePrivateIP")) {
+            params.push("--use-private-ip");
+        }
         params.push("--controller", "github", "--infoAPIPort", `${port}`);
         return params;
     });

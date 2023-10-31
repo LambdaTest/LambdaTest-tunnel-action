@@ -49,6 +49,9 @@ inputs:
   basicAuth:
     description: "Basic Auth in the following format"
     required: false
+  usePrivateIP:
+    description: "Tunnel to use system private IP for remote connections"
+    required: false
 outputs:
   port: # id of output
     description: "Port on which tunnel api server is running"
