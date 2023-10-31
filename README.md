@@ -110,5 +110,5 @@ Port on which tunnel api server is running.
 
 ### `logFileName`
 
-Name of log file of tunnel.
+Name of the log file of tunnel.
 
