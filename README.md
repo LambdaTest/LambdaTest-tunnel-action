@@ -1,4 +1,4 @@
-﻿# Run TestMu AI Tunnel Action on TestMu AI (Formerly LambdaTest)
+# Run TestMu AI Tunnel Action on TestMu AI (Formerly LambdaTest)
 
 <p align="center">
   <a href="https://www.testmuai.com/"><img src="https://img.shields.io/badge/MADE%20BY%20TestMu%20AI-000000.svg?style=for-the-badge&labelColor=000" alt="Made by TestMu AI"></a>
@@ -17,8 +17,8 @@ With TestMu AI (Formerly LambdaTest), you can run Selenium tests on 3,000+ brows
 
 ### Prerequisites
 
-- A TestMu AI (Formerly LambdaTest) account. [Sign up here](https://www.testmuai.com/register/).
-- Your TestMu AI Username and Access Key stored as [GitHub Secrets](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) (`LT_USERNAME` and `LT_ACCESS_KEY`).
+- A TestMu AI (Formerly LambdaTest) account. Sign up here.
+- Your TestMu AI Username and Access Key stored as GitHub Secrets (`LT_USERNAME` and `LT_ACCESS_KEY`).
 - A GitHub Actions workflow in your repository.
 
 ### Setup
