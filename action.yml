@@ -59,7 +59,7 @@ outputs:
     description: "Name of log file of tunnel"
 
 runs:
-  using: "node16"
+  using: "node24"
   main: "dist/index.js"
   post: "dist/index.js"
   
