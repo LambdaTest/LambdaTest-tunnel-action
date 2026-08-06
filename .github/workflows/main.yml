@@ -14,10 +14,10 @@ jobs:
 
     steps:
       - name: Check out Git repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 16
       - run: npm ci
@@ -41,7 +41,7 @@ jobs:
         run: npm test
 
       - name: Export Tunnel Logs for debugging
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: tunnel_logs
