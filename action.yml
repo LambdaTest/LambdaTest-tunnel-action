@@ -1,5 +1,5 @@
-name: "LambdaTest Tunnel Action"
-description: "A Github Action to launch LambdaTest Tunnel"
+name: "TestMu AI Tunnel Action"
+description: "A GitHub Action to launch TestMu AI (Formerly LambdaTest) Tunnel"
 inputs:
   user:
     description: "LambdaTest Email"
